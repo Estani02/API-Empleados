@@ -6,13 +6,15 @@ class Api::V1::EmployeesController < ApplicationController
   def index
     @employees = Employee.all
 
-    render json: @employees.to_json(only: [ :id, :name, :position_id ])
+    # render json: @employees.to_json(only: [ :id, :name, :position_id ])
+    render :index
   end
 
   # GET /employees/1
   # GET /employees/1.json
   def show
-    render json: @employee.to_json(only: [ :id, :name, :position_id ])
+    # render json: @employee.to_json(only: [ :id, :name, :position_id ])
+    render :show
   end
 
   # POST /employees
