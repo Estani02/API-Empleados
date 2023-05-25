@@ -1,15 +1,18 @@
-class EmploymentHistoriesController < ApplicationController
+class Api::V1::EmploymentHistoriesController < ApplicationController
   before_action :set_employment_history, only: %i[ show update destroy ]
 
   # GET /employment_histories
   # GET /employment_histories.json
   def index
     @employment_histories = EmploymentHistory.all
+
+    render json: @employment_histories.to_json(only: [:id, :employee_id, :company, :start_date, :end_date])
   end
 
   # GET /employment_histories/1
   # GET /employment_histories/1.json
   def show
+    render json: @employment_historie.to_json(only: [:id, :employee_id, :company, :start_date, :end_date])
   end
 
   # POST /employment_histories

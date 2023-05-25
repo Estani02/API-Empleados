@@ -1,15 +1,18 @@
-class DepartmentsController < ApplicationController
+class Api::V1::DepartmentsController < ApplicationController
   before_action :set_department, only: %i[ show update destroy ]
 
   # GET /departments
   # GET /departments.json
   def index
     @departments = Department.all
+
+    render json: @departments.to_json(only: [ :id, :name ]) 
   end
 
   # GET /departments/1
   # GET /departments/1.json
   def show
+    render json; @department.to_json(only: [:id, :name])
   end
 
   # POST /departments

@@ -1,15 +1,18 @@
-class PositionsController < ApplicationController
+class Api::V1::PositionsController < ApplicationController
   before_action :set_position, only: %i[ show update destroy ]
 
   # GET /positions
   # GET /positions.json
   def index
     @positions = Position.all
+
+    render json: @positions.to_json(only: [:id, :name, :department_id])
   end
 
   # GET /positions/1
   # GET /positions/1.json
   def show
+    render json: @position.to_json(only: [:id, :name, :department_id])
   end
 
   # POST /positions

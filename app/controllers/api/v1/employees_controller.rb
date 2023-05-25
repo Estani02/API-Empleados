@@ -1,15 +1,18 @@
-class EmployeesController < ApplicationController
+class Api::V1::EmployeesController < ApplicationController
   before_action :set_employee, only: %i[ show update destroy ]
 
   # GET /employees
   # GET /employees.json
   def index
     @employees = Employee.all
+
+    render json: @employees.to_json(only: [ :id, :name, :position_id ])
   end
 
   # GET /employees/1
   # GET /employees/1.json
   def show
+    render json: @employee.to_json(only: [ :id, :name, :position_id ])
   end
 
   # POST /employees

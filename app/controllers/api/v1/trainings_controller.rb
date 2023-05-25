@@ -1,15 +1,18 @@
-class TrainingsController < ApplicationController
+class Api::V1::TrainingsController < ApplicationController
   before_action :set_training, only: %i[ show update destroy ]
 
   # GET /trainings
   # GET /trainings.json
   def index
     @trainings = Training.all
+
+    render json: @trainings.to_json(only: [:id, :name, :description, :employee_id])
   end
 
   # GET /trainings/1
   # GET /trainings/1.json
   def show
+    render json: @training.to_json(only: [:id, :name, :description, :employee_id])
   end
 
   # POST /trainings
