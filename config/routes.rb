@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :trainings
   resources :employment_histories
   resources :employees
   resources :positions
