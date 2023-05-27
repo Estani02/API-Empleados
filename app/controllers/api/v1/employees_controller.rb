@@ -23,7 +23,7 @@ class Api::V1::EmployeesController < ApplicationController
     @employee = Employee.new(employee_params)
 
     if @employee.save
-      render :show, status: :created, location: @employee
+      render :show, status: :created, location: api_v1_employee_url(@employee)
     else
       render json: @employee.errors, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class Api::V1::EmployeesController < ApplicationController
   # PATCH/PUT /employees/1.json
   def update
     if @employee.update(employee_params)
-      render :show, status: :ok, location: @employee
+      render :show, status: :ok, location: api_v1_employee_url(@employee)
     else
       render json: @employee.errors, status: :unprocessable_entity
     end
