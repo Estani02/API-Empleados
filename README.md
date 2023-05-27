@@ -1,24 +1,32 @@
-# README
+# GESTION EMPLEADOS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ ------------------------
 
-Things you may want to cover:
+## BACKEND 
 
-* Ruby version
+### 📍Antes de correr el servidor creea un archivo .env para guardar las variables de entorno 
 
-* System dependencies
+Dentro del archivo :
 
-* Configuration
+>DB_PASSWORD= tu contraseñade postrgresql <br>
+DB_USER= tu usuario postrgresql
 
-* Database creation
+Despues de guardar las variables, instala las dependencias en la terminal del proyecto con:
+>bundle install
+### 📍Luego ejecuta en la terminal del proyecto los comandos:
 
-* Database initialization
+>rake db: create <br>
+rake db:migrate <br>
+rake db:seed <br>
+rake db:server
 
-* How to run the test suite
+## FRONTEND
 
-* Services (job queues, cache servers, search engines, etc.)
+### Instala las dependencias en la terminal del proyecto con:
 
-* Deployment instructions
+>npm i
 
-* ...
+### Para correr el frontend ejecuta:
+
+>npm run dev
+
