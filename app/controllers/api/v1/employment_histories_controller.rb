@@ -21,7 +21,7 @@ class Api::V1::EmploymentHistoriesController < ApplicationController
     @employment_history = EmploymentHistory.new(employment_history_params)
 
     if @employment_history.save
-      render :show, status: :created, location: @employment_history
+      render :show, status: :created, location: api_v1_employment_history_url(@employment_history)
     else
       render json: @employment_history.errors, status: :unprocessable_entity
     end

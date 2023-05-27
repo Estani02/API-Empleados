@@ -21,7 +21,7 @@ class Api::V1::TrainingsController < ApplicationController
     @training = Training.new(training_params)
 
     if @training.save
-      render :show, status: :created, location: @training
+      render :show, status: :created, location: api_v1_trainings_url(@trainings)
     else
       render json: @training.errors, status: :unprocessable_entity
     end

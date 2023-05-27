@@ -1,0 +1,1 @@
+json.extract! @training, :id, :employee_id, :name, :description
