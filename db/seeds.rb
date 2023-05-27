@@ -33,4 +33,42 @@ Training.create(employee: maria_gomez, name: "Técnicas de venta", description: 
 Training.create(employee: pedro_rodriguez, name: "Contabilidad Avanzada", description: "Curso especializado en contabilidad avanzada")
 Training.create(employee: laura_gonzalez, name: "Gestión del Talento", description: "Taller de gestión y desarrollo del talento humano")
 
+# Creación de cargos adicionales
+puts "Creando cargos adicionales..."
+
+# Generar nombres de cargos aleatorios
+def generate_cargo_name
+  prefixes = ["Asociado", "Especialista", "Senior", "Junior", "Experto"]
+  titles = ["Desarrollo", "Investigación", "Operaciones", "Analítica", "Gestión"]
+  suffixes = ["Técnico", "Administrativo", "Estratégico", "Comercial", "Financiero"]
+
+  prefix = prefixes.sample
+  title = titles.sample
+  suffix = suffixes.sample
+
+  "#{prefix} #{title} #{suffix}"
+end
+
+# Cargos adicionales para Marketing
+4.times do
+  Position.create(name: generate_cargo_name, department: marketing)
+end
+
+# Cargos adicionales para Ventas
+4.times do
+  Position.create(name: generate_cargo_name, department: ventas)
+end
+
+# Cargos adicionales para Contabilidad
+4.times do
+  Position.create(name: generate_cargo_name, department: contabilidad)
+end
+
+# Cargos adicionales para Recursos Humanos
+4.times do
+  Position.create(name: generate_cargo_name, department: recursos_humanos)
+end
+
+puts "Cargos adicionales creados correctamente ✨✨."
+
 
