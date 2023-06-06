@@ -21,10 +21,41 @@ laura_gonzalez = Employee.create(name: "Laura González", position: analista_rrh
 
 # Creación de historial laboral
 puts "Historial laboral creados correctamente ✨✨."
-EmploymentHistory.create(employee: juan_perez, company: "ABC Company", start_date: Date.new(2015, 6, 1), end_date: Date.new(2019, 12, 31))
-EmploymentHistory.create(employee: maria_gomez, company: "XYZ Agency", start_date: Date.new(2017, 3, 15), end_date: Date.new(2022, 9, 30))
-EmploymentHistory.create(employee: pedro_rodriguez, company: "XYZ Accounting Services", start_date: Date.new(2016, 9, 1), end_date: Date.new(2022, 3, 31))
-EmploymentHistory.create(employee: laura_gonzalez, company: "ABC HR Solutions", start_date: Date.new(2018, 4, 15), end_date: Date.new(2023, 6, 30))
+
+EmploymentHistory.create([
+  { employee: juan_perez, company: "ABC Company", start_date: Date.new(2015, 6, 1), end_date: Date.new(2019, 12, 31) },
+  { employee: juan_perez, company: "Henry", start_date: Date.new(2020, 8, 11), end_date: Date.new(2020, 12, 30) },
+  { employee: juan_perez, company: "ISOW", start_date: Date.new(2022, 10, 1) },
+  { employee: maria_gomez, company: "ZOCO", start_date: Date.new(2021, 6, 1), end_date: Date.new(2023, 2, 5) },
+  { employee: maria_gomez, company: "Coderhouse", start_date: Date.new(2023, 7, 20) },
+  { employee: pedro_rodriguez, company: "Disco", start_date: Date.new(2023, 1, 1)},
+  { employee: pedro_rodriguez, company: "Solaz SA", start_date: Date.new(2015, 1, 1), end_date: Date.new(2019, 2, 4) },
+  { employee: pedro_rodriguez, company: "Vans", start_date: Date.new(2019, 1, 1), end_date: Date.new(2020, 5, 7) },
+  { employee: laura_gonzalez, company: "Ford", start_date: Date.new(2022, 1, 15) }
+])
+
+juan_perez.reload
+maria_gomez.reload
+pedro_rodriguez.reload
+laura_gonzalez.reload
+
+employees = [juan_perez, maria_gomez, pedro_rodriguez, laura_gonzalez]
+
+employees_json = employees.map do |employee|
+  history = employee.employment_histories.map do |employment_history|
+    {
+      name_company: employment_history.company,
+      start_date: employment_history.start_date.to_s,
+      end_date: employment_history.end_date&.to_s
+    }
+  end
+
+  {
+    id: employee.id,
+    employee_id: employee.id,
+    history: history
+  }
+end
 
 # Creación de capacitaciones
 puts "Capacitaciones creados correctamente ✨✨."

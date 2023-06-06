@@ -8,5 +8,9 @@ Rails.application.routes.draw do
       resources :positions
       resources :departments
     end
+    namespace :v2 do
+      resources :employment_histories
+      resources :employees
+    end
   end
 end
