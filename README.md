@@ -18,7 +18,7 @@ Despues de guardar las variables, instala las dependencias en la terminal del pr
 >rake db: create <br>
 rake db:migrate <br>
 rake db:seed <br>
-rake db:server
+rails db:server
 
 ## FRONTEND
 
